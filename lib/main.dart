@@ -11,31 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        primarySwatch: Colors.blue,
-      ),
-      home:  MyHomePage(),
-    );
-  }
-
-
-}
-
-class MyHomePage extends StatelessWidget {
-
-
-  MyHomePage();
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return  Scaffold(
-      appBar: AppBar(),
-      body: Text("Hola"),
+      home: Center(
+        child: Text('Hola Mundo'),
+      )
     );
   }
 }
+
 
 
 
