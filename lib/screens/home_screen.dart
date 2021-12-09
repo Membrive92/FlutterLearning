@@ -25,6 +25,13 @@ class HomeScreen extends StatelessWidget {
 
             ]),
         ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add, size: 42.0),
+        onPressed: () {
+          print('Me has pulsado');
+        },
+        
+      ) ,
     );
 
 
