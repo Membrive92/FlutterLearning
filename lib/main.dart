@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learning/Counter/screens/counter_screen.dart';
+import 'package:learning/src/pages/home_temp.dart';
 
 
 
@@ -15,17 +15,8 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
        title: 'Component App',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Componentes'),
-        ),
-        body: Center(
-          child: Container(
-            child: const Text('Hello World'),
-          ),
-        ),
-      ),
-    );
+      home:  HomePageTemp()
+      );
   }
 }
 
