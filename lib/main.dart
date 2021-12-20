@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:learning/Counter/screens/counter_screen.dart';
-void main() {
-  runApp(MyApp());
-}
+import 'package:learning/screens/listview1_screen.dart';
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        debugShowCheckedModeBanner: false, home: CounterScreen());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Material App',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Material App Bar'),
+        ),
+        body: const ListView1Screen()
+      ),
+    );
   }
 }
