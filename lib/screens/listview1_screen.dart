@@ -1,32 +1,36 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:learning/themes/app_themes.dart';
 
- class ListView1Screen extends StatelessWidget {
+class ListView1Screen extends StatelessWidget {
+  final options = const [
+    'Megaman',
+    'Metal Gear',
+    'Super Smash',
+    'Final Fantasy'
+  ];
 
-   final options = const ['Megaman', 'Metal Gear', 'Super Smash', 'Final Fantasy'];
+  const ListView1Screen({Key? key}) : super(key: key);
 
- const ListView1Screen({Key? key}) : super(key: key);
-
- @override
+  @override
   Widget build(BuildContext context) {
-   return  Scaffold(
-     body:ListView(
-        children:  [
-          
-          ...options.map((game) =>
-               ListTile(
-                trailing: const Icon(Icons.arrow_forward_ios),
-                title: Text( game ) ,
-              ),
-          ).toList()
-          
-          
-          
-
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Listview 1'),
+      ),
+      body: ListView(
+        children: [
+          ...options
+              .map(
+                (game) => ListTile(
+                  trailing: const Icon(Icons.arrow_forward_ios,
+                      color: AppTheme.primary),
+                  title: Text(game),
+                ),
+              )
+              .toList()
         ],
-     ),
-   );
+      ),
+    );
   }
 }
-

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning/router/app_router.dart';
+import 'package:learning/themes/app_themes.dart';
 import 'screens/screens.dart';
 
 
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
       //home: const CardScreen(),
       initialRoute: AppRoutes.initialRoute,
       routes: AppRoutes.getAppRoutes(),
-      onGenerateRoute: AppRoutes.onGenerateRoute
+      onGenerateRoute: AppRoutes.onGenerateRoute,
+      theme: AppTheme.lightTheme
 
     );
   }
