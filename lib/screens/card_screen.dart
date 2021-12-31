@@ -17,7 +17,9 @@ class CardScreen extends StatelessWidget {
           children: const [
             CustomCard(),
             SizedBox(height: 10),
-            CustomCard2(),
+            CustomCard2(name:'A landscape' ,imageUrl: 'https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/130238819/original/d4096d4950eba421600f21c6c753c19375222eb6/draw-you-a-landscape-image-with-ms-paint.png'),
+            SizedBox(height: 10),
+            CustomCard2(imageUrl: 'https://i1.adis.ws/i/canon/canon-pro-ambassador-exchange-landscapes-1-1140?w=1140&qlt=70&fmt=jpg&fmt.options=interlaced&bg=rgb(255,255,255)'),
           ]),
     );
   }

@@ -4,10 +4,12 @@ import 'package:learning/themes/app_themes.dart';
 
 
 class CustomCard2 extends StatelessWidget {
-  const CustomCard2({Key? key}) : super(key: key);
+  const CustomCard2({Key? key, required this.imageUrl, this.name}) : super(key: key);
 
+  final String imageUrl;
+  final String? name;
 
-
+  @override
   Widget build(BuildContext context) {
     return Card(
       clipBehavior: Clip.antiAlias,
@@ -19,8 +21,8 @@ class CustomCard2 extends StatelessWidget {
       child: Column(
         children:    [
 
-        const  FadeInImage(
-              image: NetworkImage('https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/130238819/original/d4096d4950eba421600f21c6c753c19375222eb6/draw-you-a-landscape-image-with-ms-paint.png'),
+          FadeInImage(
+              image: NetworkImage(imageUrl),
             placeholder: AssetImage('assets/jar-loading.gif'),
             width: double.infinity,
             height: 230,
@@ -28,10 +30,13 @@ class CustomCard2 extends StatelessWidget {
             fadeInDuration: Duration(milliseconds: 300),
           ),
 
+        if(name != null)
           Container(
             alignment: AlignmentDirectional.centerEnd,
             padding: const EdgeInsets.only(right: 20, top: 10, bottom: 10),
-            child: const Text('A Landscape'),
+                        //By default
+            child:  Text(name ?? 'Default'),
+            //child:  Text(name!),  without value
           )
         ],
       ),
