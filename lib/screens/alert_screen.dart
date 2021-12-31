@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning/themes/app_themes.dart';
 
 
 class AlertScreen extends StatelessWidget {
@@ -9,10 +10,34 @@ class AlertScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-          child: Container(
-            child: Text('AlertScreen'),
+          child: ElevatedButton(
+           /* style: ElevatedButton.styleFrom(
+              primary: Colors.red,
+              shape: const StadiumBorder(),
+              elevation: 0
+            ), This styles replace the apptheme */
+
+            child: const Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child:  Text('Show Alert', style: TextStyle(fontSize: 16)),
+            ),
+
+            //onPressed: null  it change button to disabled button
+            onPressed: () {
+
+            },
+
           ),
+
         ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppTheme.primary,
+        child: const Icon(Icons.close),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+
+      ),
       );
   }
 }

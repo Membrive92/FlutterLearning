@@ -4,10 +4,10 @@ import 'package:learning/themes/app_themes.dart';
 
 
 class CustomCard2 extends StatelessWidget {
-  const CustomCard2({Key? key, required this.imageUrl, this.name}) : super(key: key);
-
   final String imageUrl;
+
   final String? name;
+  const CustomCard2({Key? key, required this.imageUrl, this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
