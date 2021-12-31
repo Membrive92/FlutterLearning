@@ -1,43 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:learning/themes/app_themes.dart';
 
-
 class AlertScreen extends StatelessWidget {
   const AlertScreen({Key? key}) : super(key: key);
 
+  void displayDialog(BuildContext context) {
+    showDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            elevation: 5,
+            title: const Text('title'),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Text('Alert contain'),
+                SizedBox(height: 10),
+                FlutterLogo(size: 100)
+              ],
+            ),
+            actions: [
+              TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('Cancel'))
+            ],
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
+      body: Center(
           child: ElevatedButton(
-           /* style: ElevatedButton.styleFrom(
+              /* style: ElevatedButton.styleFrom(
               primary: Colors.red,
               shape: const StadiumBorder(),
               elevation: 0
             ), This styles replace the apptheme */
 
-            child: const Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child:  Text('Show Alert', style: TextStyle(fontSize: 16)),
-            ),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Text('Show Alert', style: TextStyle(fontSize: 16)),
+              ),
 
-            //onPressed: null  it change button to disabled button
-            onPressed: () {
-
-            },
-
-          ),
-
-        ),
+              //onPressed: null  it change button to disabled button
+              onPressed: () => displayDialog(context))),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: AppTheme.primary,
-        child: const Icon(Icons.close),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-
-      ),
-      );
+          backgroundColor: AppTheme.primary,
+          child: const Icon(Icons.close),
+          onPressed: () => Navigator.pop(context)),
+    );
   }
 }
