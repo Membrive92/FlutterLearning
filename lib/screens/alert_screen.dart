@@ -1,10 +1,48 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:learning/themes/app_themes.dart';
 
 class AlertScreen extends StatelessWidget {
   const AlertScreen({Key? key}) : super(key: key);
 
-  void displayDialog(BuildContext context) {
+  void displayDialogIOS(BuildContext context){
+    
+      showCupertinoDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (context){
+
+            return CupertinoAlertDialog(
+                title: const Text("Cupertino"),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  Text('Alert contain'),
+                  SizedBox(height: 10),
+                  FlutterLogo(size: 100)
+                ],
+              ),
+              actions: [
+                TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child:  const Text('Cancel', style: TextStyle( color: Colors.red ))
+                ),
+                  TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child:  const Text('Ok')
+                  )
+
+              ],
+
+            );
+          }
+      );
+    
+  }
+
+  void displayDialogAndroid(BuildContext context) {
     showDialog(
         barrierDismissible: true,
         context: context,
@@ -48,7 +86,13 @@ class AlertScreen extends StatelessWidget {
               ),
 
               //onPressed: null  it change button to disabled button
-              onPressed: () => displayDialog(context))),
+             // onPressed: () => displayDialogAndroid(context))),
+              onPressed: () => Platform.isAndroid
+                  ? displayDialogAndroid(context)
+                  : displayDialogIOS(context)
+          )
+      ),
+
       floatingActionButton: FloatingActionButton(
           backgroundColor: AppTheme.primary,
           child: const Icon(Icons.close),
